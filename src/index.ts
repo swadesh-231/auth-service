@@ -1,13 +1,14 @@
 import app from "./app.js";
 import { env } from "./config/env.js";
+import logger from "./config/logger.js";
 
 const startServer = () => {
   try {
     app.listen(env.PORT, () => {
-      console.log(`Server running on port ${env.PORT} in ${env.NODE_ENV} mode`);
+      logger.info(`Server running on port ${env.PORT} in ${env.NODE_ENV} mode`);
     });
   } catch (error) {
-    console.error("Failed to start server:", error);
+    logger.error("Failed to start server:", error);
     process.exit(1);
   }
 };
